@@ -1,13 +1,14 @@
 pipeline {
     agent any
     tools {
-        maven 'mvn' 
+        maven 'mvn'
+        jdk 'jdk17'
     }
     stages {
         stage('Example') {
             steps {
                 sh '''
-                cd spring-petclinic
+                java version
                 mvn -B -DskipTests clean package
               
                       '''
