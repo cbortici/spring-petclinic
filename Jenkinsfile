@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent { label 'test' }
     tools {
         maven 'mvn'
         jdk 'jdk17'
@@ -8,9 +8,8 @@ pipeline {
         stage('Example') {
             steps {
                 sh '''
-                java version
                 mvn -B -DskipTests clean package
-              
+                java -jar /home/jenkins/workspace/example/spring/target/spring-petclinic-3.3.0-SNAPSHOT.jar
                       '''
             }
         }
